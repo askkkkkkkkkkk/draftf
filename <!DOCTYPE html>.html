@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraising Program</title>
+    <style>
+        body {
+            background-image: url('/mnt/data/A_peaceful,_thriving_community_with_clean_water,_g.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        h1, h2 {
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green button */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .flower {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: drip 3s infinite;
+        }
+
+        @keyframes drip {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(10px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main Page -->
+<div class="container" id="main">
+    <h1>Welcome to Our Fundraising Event</h1>
+    <p>We are Group 6, ONL-9-1 S2</p>
+    <a href="#category" class="button" onclick="playSound()">Go to Chosen Category</a>
+</div>
+
+<!-- Chosen Category Section -->
+<div class="container" id="category" style="display:none;">
+    <h1>Chosen Category</h1>
+    <p>We specifically chose the "Educational" category as it aligns with our objective to create content that is informative, enlightening, and inspirational. By focusing on this category, we aim to impart knowledge and insights that can positively impact the lives of our audience, especially students. We believe that our content not only serves the purpose of creation but also contributes valuable information that can benefit and empower our viewers.</p>
+    <a href="#audience" class="button" onclick="playSound()">Next: Target Audience</a>
+</div>
+
+<!-- Target Audience Section -->
+<div class="container" id="audience" style="display:none;">
+    <h1>Target Audience</h1>
+    <p>Since our content aims to help the unfortunate, we think that it would be best if our target audience would be: teens, people who are willing to help the unfortunate, and sponsors or brands that are willing enough to help the unfortunate. Teens will be such a great help to our content since they are mostly the ones that like to speak up for things. With today's teenagers, so many young people create content on TikTok and YouTube. With their help and influence, we can expand our content more.</p>
+    <a href="#needs" class="button" onclick="playSound()">Next: Needs</a>
+</div>
+
+<!-- Needs Section -->
+<div class="container" id="needs" style="display:none;">
+    <h1>Needs</h1>
+    <p>Our needs include:</p>
+    <ul>
+        <li>Camera</li>
+        <li>Microphone</li>
+        <li>Laptop/Cellphone</li>
+        <li>Editing app</li>
+        <li>Internet</li>
+        <li>Online Design Platform (e.g., Canva)</li>
+    </ul>
+    <p>This will help us fulfill our needs for building our Educational Video and also help us educate people.</p>
+    <a href="#youtube_channel_setup" class="button" onclick="playSound()">Next: YouTube Channel Setup</a>
+</div>
+
+<!-- YouTube Channel Setup Section -->
+<div class="container" id="youtube_channel_setup" style="display:none;">
+    <h1>YouTube Channel Setup</h1>
+    <p>Why we need to address? In Sitio Bebe, we need to address the lack of access to clean water, healthcare professionals, and essential health resources. Our YouTube channel can become a platform for raising awareness, sharing stories of resilience, and inspiring viewers to donate to support these needs. We can create videos showcasing the challenges faced by the community, highlighting the impact of clean water access and healthcare, and providing practical ways for viewers to contribute. By focusing on empathy and action, we can empower viewers to make a difference for Sitio Bebe.</p>
+    <a href="#content_creation" class="button" onclick="playSound()">Next: Content Creation</a>
+</div>
+
+<!-- Content Creation Section -->
+<div class="container" id="content_creation" style="display:none;">
+    <h1>Content Creation</h1>
+    <p>Starting to brainstorm specific video ideas based on the content types we discussed. Plan out our video scripts and gather any necessary resources. Recording our initial videos and experimenting with editing styles.</p>
+    <a href="#marketing_promotion" class="button" onclick="playSound()">Next: Marketing and Promotion</a>
+</div>
+
+<!-- Marketing and Promotion Section -->
+<div class="container" id="marketing_promotion" style="display:none;">
+    <h1>Marketing and Promotion</h1>
+    <p>Creating a social media strategy to promote our channel. Sharing our videos on relevant online communities and forums.</p>
+    <a href="#" class="button" onclick="playSound()">Back to Main</a>
+</div>
+
+<img src="flower.svg" class="flower" alt="Dripping Flower" width="50">
+<audio id="click-sound" src="click-sound.mp3"></audio>
+<script>
+    function playSound() {
+        document.getElementById('click-sound').play();
+    }
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            document.querySelectorAll('.container').forEach(container => {
+                container.style.display = 'none';
+            });
+            document.getElementById(targetId).style.display = 'flex';
+        });
+    });
+</script>
+</body>
+</html>
